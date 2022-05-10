@@ -1,0 +1,162 @@
+#modal {
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1;
+
+    background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+#content {
+    width: 500px;
+    height: 300px;
+
+    background-color: white;
+    border-radius: 20px;
+
+    opacity: 1;
+
+    padding: 20px 80px;
+
+    display: flex;
+    align-items: center;
+
+    flex-direction: column;
+
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    width: 100%;
+}
+
+
+#text {
+    display: flex;
+    flex-direction: column;
+
+
+    align-self: flex-start;
+    width: 100%;
+}
+
+#text label {
+    background-color: #2AF5B1;
+    border-radius: 8px;
+
+    color: white;
+
+    padding: 5px;
+
+    width: fit-content;
+}
+
+#text input {
+    all: unset;
+
+    background-color: white;
+    border: 1px solid black;
+
+    padding: 5px;
+
+    border-radius: 10px;
+
+    margin-top: 10px;
+    width: 100%;
+    height: 30px;
+
+}
+
+#text .textFault {
+    border: 1px solid #F23030;
+}
+
+#radios {
+
+    width: 60%;
+    height: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 30px;
+}
+
+.radio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.radio label {
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.radio.urgencyFault {
+    list-style: none;
+    outline: #F23030;
+}
+
+#urgent-block label {
+    color: #F23030;
+}
+
+#medium-block label {
+    color: #FFEC00;
+}
+
+#light-block label {
+    color: #3DD1F2;
+}
+
+#modal-buttons {
+    width: 100%;
+    margin-top: 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal-button {
+    width: 150px;
+    height: 50px;
+
+    border-radius: 10px;
+}
+
+.modal-button:hover {
+    cursor: pointer;
+}
+
+.modal-button#submit {
+    background-color: #2AF5B1;
+    color: white;
+}
+
+.modal-button#cancel {
+    background-color: white;
+    border: 1px solid red;
+    color: red;
+}
