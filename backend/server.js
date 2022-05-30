@@ -12,4 +12,6 @@ server.use(cors())
 
 server.use(route)
 
-server.listen(process.env.PORT || 3001)
+server.listen(process.env.PORT || 3001, () => {
+    console.log("server is running!")
+})

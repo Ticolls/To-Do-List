@@ -2,13 +2,10 @@ import { useEffect, useState } from 'react'
 import { useModal } from '../hooks/useModal'
 import '../styles/modal.css'
 
-import axios from 'axios'
 import { useId } from '../hooks/useId'
+import { api } from '../services/api'
 
 export function Modal() {
-    const baseURL = "https://todolist-ticolls.herokuapp.com/"
-
-    const createSubmitURL = baseURL + "create/to-do"
 
     const { modalStatus, setModalStatus } = useModal()
     const { id } = useId()
@@ -40,7 +37,7 @@ export function Modal() {
         if (modalStatus == "create") {
             if (text.trim() != "" && urgency.trim() != "") {
 
-                const res = await axios.post(createSubmitURL, {
+                const res = await api.post("/to-do/create", {
                     text: text,
                     urgency: urgency,
                     done: false
@@ -59,11 +56,11 @@ export function Modal() {
             if (text.trim() != "" || urgency.trim() != "") {
 
                 if (text.trim() != "" && urgency.trim() != "") {
-                    const res = await axios.put(`http://localhost:3001/update/to-do/${id}`, { text: text, urgency: urgency })
+                    const res = await api.put(`/to-do/update/${id}`, { text: text, urgency: urgency })
                 } else if (text.trim() != "") {
-                    const res = await axios.put(`http://localhost:3001/update/to-do/${id}`, { text: text })
+                    const res = await api.put(`/to-do/update/${id}`, { text: text })
                 } else if (urgency.trim() != "") {
-                    const res = await axios.put(`http://localhost:3001/update/to-do/${id}`, { urgency: urgency })
+                    const res = await api.put(`/to-do/update/${id}`, { urgency: urgency })
                 }
             } else {
                 setTextFault(true)

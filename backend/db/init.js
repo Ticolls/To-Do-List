@@ -13,6 +13,14 @@ const toDoListSchema = new mongoose.Schema({
     done: Boolean
 })
 
-const model = mongoose.model("ToDoList", toDoListSchema)
+const usersSchema = new mongoose.Schema({
+    userName: String,
+    password: String,
+    toDoList: Array
 
-export { model }
+})
+
+const usersModel = mongoose.model("User", usersSchema)
+const toDoListModel = mongoose.model("toDoList", toDoListSchema)
+
+export { usersModel, toDoListModel }

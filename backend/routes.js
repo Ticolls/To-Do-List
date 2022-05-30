@@ -1,5 +1,6 @@
 import Router from 'express'
 import { toDoController } from './controllers/toDoController.js'
+import { usersController } from './controllers/usersController.js'
 
 const route = Router()
 
@@ -7,15 +8,18 @@ route.get("/", (req, res) => {
     res.send("deu certo!")
 })
 
-route.get("/read", toDoController.read)
-route.get("/read/ordered", toDoController.readOrdered)
+route.post("/users/create", usersController.create)
+route.post("/users/login", usersController.login)
 
-route.post("/create/to-do", toDoController.create)
+route.get("/to-do/read", toDoController.read)
+route.get("/to-do/read/ordered", toDoController.readOrdered)
 
-route.put("/check/:id", toDoController.check)
-route.put("/update/to-do/:id", toDoController.update)
+route.post("/to-do/create", toDoController.create)
 
-route.delete("/delete/:id", toDoController.delete)
+route.put("/to-do/check/:id", toDoController.check)
+route.put("/to-do/update/:id", toDoController.update)
+
+route.delete("/to-do/delete/:id", toDoController.delete)
 
 
 export { route }
